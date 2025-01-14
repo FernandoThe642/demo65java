@@ -13,6 +13,10 @@ public class Telefono {
 	private int codigo;
 	private String tipo;
 	private String numero;
+
+
+	
+	
 	public int getCodigo() {
 		return codigo;
 	}

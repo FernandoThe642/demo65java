@@ -17,15 +17,15 @@ import jakarta.inject.Inject;
 @Startup
 
 public class Inicio {
-
+	
+	//Se hace la consulta en e servidor de apliacaione s para ver si exite
 	@Inject
 	private ClienteDAO clienteDAO;
 	
 	@PostConstruct
 	public void init() {
 	
-		
-		System.out.println("----------------Clientes----------------------");
+		//----------------Clientes---
 		
         Cliente cliente1 = new Cliente();
         cliente1.setCedula("1234567890");
@@ -41,7 +41,7 @@ public class Inicio {
 		
 
 		
-		System.out.println("---------------Telefonos----------------------");
+		//---------------Telefonos----------------------
 		Telefono f1 = new Telefono();
 		f1.setTipo("Celular");
 		f1.setNumero("0957639577");
@@ -59,7 +59,7 @@ public class Inicio {
 		
 		
 		
-		
+		System.out.println("----------------Clientes----------------------");
 		List<Cliente> listado = clienteDAO.getClientes();
 		
 		for(Cliente cli: listado) {

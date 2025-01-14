@@ -30,6 +30,11 @@ public class ClienteDAO {
 		em.remove(cliente);
 	}
 	
+	public Cliente read(String cedula) {
+		Cliente cliente = em.find(Cliente.class, cedula);
+		return cliente;
+	}
+	
 	public List<Cliente> getClientes() {
 		String jpql = "SELECT c FROM Cliente c";
 		Query query = em.createQuery(jpql, Cliente.class);
