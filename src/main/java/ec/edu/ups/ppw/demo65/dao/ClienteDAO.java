@@ -33,7 +33,7 @@ public class ClienteDAO {
 	public Cliente read(String cedula) {
 		Cliente cliente = em.find(Cliente.class, cedula);
 		return cliente;
-	}
+	}        
 	
 	public List<Cliente> getClientes() {
 		String jpql = "SELECT c FROM Cliente c";
