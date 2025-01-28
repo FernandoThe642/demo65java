@@ -6,7 +6,14 @@ Run the maven goals "install wildfly:deploy"
 To undeploy it:
 Run the maven goals "wildfly:undeploy"
 
-==========================
+git config --local user.name "jsanchez"
+
+git config --local user.mail jsanchezr6@est.ups.edu.ec
+
+git config --global user.email "jsanchezr6@est.ups.edu.ec"
+git config --global user.name "jsanchez"
+git config --global user.email "jsanchezr6@est.ups.edu.ec"
+
 
 DataSource:
 This sample includes a "persistence.xml" file in "src/main/resources/META-INF". This file defines
