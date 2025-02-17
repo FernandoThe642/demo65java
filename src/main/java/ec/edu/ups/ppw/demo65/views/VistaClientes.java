@@ -68,18 +68,17 @@ public class VistaClientes implements Serializable {
         this.listado = listado;
     }
     
-    // Agregar teléfono a la lista temporal
+
     public void agregarTelefono() {
         if (telefono.getNumero() == null || telefono.getNumero().isEmpty()) {
             FacesContext.getCurrentInstance().addMessage(null,
                 new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Debe ingresar un número de teléfono"));
         } else {
-            telefonos.add(telefono); // Se agrega a la lista temporal
+            telefonos.add(telefono);
             telefono = new Telefono(); // Se reinicia para el siguiente teléfono
         }
     }
-    
-    // Guardar el cliente y asociarle los teléfonos
+
     public String guardar() {
         if (cliente.getCedula() == null || cliente.getCedula().isEmpty()) {
             FacesContext.getCurrentInstance().addMessage(null,
