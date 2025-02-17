@@ -25,10 +25,21 @@ public class GestionClientes {
 		return cli;	
 	}
 	
+	public void createCliente(Cliente cliente) throws Exception {
+		if(cliente.getCedula().length() != 10) {
+			throw new Exception("Cedula incorrecta");
+		}
+		DAO.agregarCliente(cliente);
+	}
 	
 	public List<Cliente> getAll(){
 		return DAO.getClientes();
 	}
+	
+	public List<Cliente>getClientes(){
+		return DAO.getClientes();
+	}
+	
 	
 	
 	

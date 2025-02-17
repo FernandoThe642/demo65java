@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+    <title>Registrar Cliente</title>
+</h:head>
+<h:body>
+
+    <h1>Registro de Cliente</h1>
+
+    <h:messages globalOnly="true" showDetail="true" />
+
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel for="cedula" value="Cédula:" />
+            <h:inputText id="cedula" value="#{clientes.cliente.cedula}" required="true"/>
+            <h:message for="cedula" style="color:red"/>
+            <br/>
+            
+            <h:outputLabel for="nombre" value="Nombre:" />
+            <h:inputText id="nombre" value="#{clientes.cliente.nombre}" required="true"/>
+            <h:message for="nombre" style="color:red"/>
+            <br/>
+            
+            <h:outputLabel for="direccion" value="Dirección:" />
+            <h:inputText id="direccion" value="#{clientes.cliente.direccion}" required="true"/>
+            <h:message for="direccion" style="color:red"/>
+        </h:panelGrid>
+        
+        <h3>Agregar Teléfonos</h3>
+        <h:panelGrid columns="3">
+            <h:outputLabel for="tipo" value="Tipo:" />
+            <h:selectOneMenu id="tipo" value="#{clientes.telefono.tipo}">
+                <f:selectItem itemLabel="Celular" itemValue="Celular"/>
+                <f:selectItem itemLabel="Convencional" itemValue="Convencional"/>
+            </h:selectOneMenu>
+            <br/>
+            
+            <h:outputLabel for="numero" value="Número:" />
+            <h:inputText id="numero" value="#{clientes.telefono.numero}"/>
+            <h:message for="numero" style="color:red"/>
+            
+            <h:commandButton value="Añadir Teléfono" action="#{clientes.agregarTelefono()}" />
+        </h:panelGrid>
+        
+        <h3>Teléfonos Agregados</h3>
+        <h:dataTable value="#{clientes.telefonos}" var="t">
+            <h:column>
+                <f:facet name="header">Tipo</f:facet>
+                #{t.tipo}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Número</f:facet>
+                #{t.numero}
+            </h:column>
+        </h:dataTable>
+        
+        <br/>
+        
+        <h:commandButton value="Guardar Cliente" action="#{clientes.guardar()}" />
+    </h:form>
+    
+    <br/>
+    <h:link value="Volver a la Lista" outcome="ListadoClientes.xhtml"/>
+
+</h:body>
+</html>

@@ -30,7 +30,7 @@ public class Cliente {
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "cedula_cliente")
-   private List<Telefono> telefonos;
+    private List<Telefono> telefonos;
 
 
 
